@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Clinic Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>🏥 AI Clinic Manager</h1>
+                <p>Smart Healthcare Management System</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Your Name</label>
+                    <input type="text" id="username" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="email" placeholder="Enter email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-user-tag"></i> Select Role</label>
+                    <div class="role-selector" id="roleSelector">
+                        <div class="role-btn admin" data-role="admin" onclick="selectRole('admin')">
+                            <i class="fas fa-crown"></i>
+                            <span>Admin</span>
+                        </div>
+                        <div class="role-btn doctor" data-role="doctor" onclick="selectRole('doctor')">
+                            <i class="fas fa-user-md"></i>
+                            <span>Doctor</span>
+                        </div>
+                        <div class="role-btn reception" data-role="receptionist" onclick="selectRole('receptionist')">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Receptionist</span>
+                        </div>
+                        <div class="role-btn patient" data-role="patient" onclick="selectRole('patient')">
+                            <i class="fas fa-user"></i>
+                            <span>Patient</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Login to Dashboard
+                </button>
+            </form>
+            
+            <div class="demo-section">
+                <div class="demo-title">🔑 Quick Demo Login</div>
+                <div class="demo-buttons">
+                    <button class="demo-btn admin" onclick="fillDemo('admin')" type="button">
+                        <i class="fas fa-crown"></i>
+                        <span>Admin</span>
+                    </button>
+                    <button class="demo-btn doctor" onclick="fillDemo('doctor')" type="button">
+                        <i class="fas fa-user-md"></i>
+                        <span>Doctor</span>
+                    </button>
+                    <button class="demo-btn reception" onclick="fillDemo('receptionist')" type="button">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Reception</span>
+                    </button>
+                    <button class="demo-btn patient" onclick="fillDemo('patient')" type="button">
+                        <i class="fas fa-user"></i>
+                        <span>Patient</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard">
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-stethoscope"></i> AI Clinic
+            </div>
+            <div class="user-info">
+                <span class="user-badge" id="userRole">Admin</span>
+                <span id="userNameDisplay">Admin User</span>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+        
+        <div class="main-container">
+            <div class="sidebar" id="sidebar">
+                <!-- Menu will be populated by JavaScript -->
+            </div>
+            
+            <div class="content" id="content">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    
+    <!-- Loading -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p style="margin-top: 20px; color: #333;">Loading...</p>
+    </div>
+    
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+    
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
